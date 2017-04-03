@@ -18017,3 +18017,120 @@ Processing by Admin::MembershipsController#index as HTML
 Completed 200 OK in 398ms (Views: 376.3ms | ActiveRecord: 16.1ms)
 
 
+Started GET "/memberships/new" for 127.0.0.1 at 2017-04-03 15:41:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MembershipsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/new.html.erb within layouts/application
+  Rendered memberships/_form.html.erb (87.1ms)
+  Rendered memberships/new.html.erb within layouts/application (89.7ms)
+  Rendered shared/_navbar.html.erb (46.3ms)
+  Rendered shared/_flashes.html.erb (0.5ms)
+Completed 200 OK in 1508ms (Views: 1428.3ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/memberships" for 127.0.0.1 at 2017-04-03 15:41:34 +0200
+Processing by MembershipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"egA/o37Syo9o8MCGabsPmLcWrKssn8I3JnAp3w4iJFYsDFRy5FEEKrjBNcYbhbto7iB81zmN0Fep1Sxa5Ej3yg==", "membership"=>{"last_name"=>"a", "first_name"=>"a", "age"=>"a", "diplome"=>"a", "activity"=>"a", "massif"=>"a", "periode"=>"a", "passmorgiou"=>"false", "passsormiou"=>"false", "siret"=>"a", "description"=>"a", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fa4741a4c38 @tempfile=#<Tempfile:/tmp/RackMultipart20170403-23668-736u2f.jpg>, @original_filename="40999046-Ecologie-arbre-logo-vecteur-Banque-d'images.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"membership[photo]\"; filename=\"40999046-Ecologie-arbre-logo-vecteur-Banque-d'images.jpg\"\r\nContent-Type: image/jpeg\r\n">, "photo_cache"=>""}, "commit"=>"Soumettre les modifications"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMembership Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "memberships" WHERE "memberships"."siret" = $1 LIMIT $2[0m  [["siret", "a"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering memberships/new.html.erb within layouts/application
+  Rendered memberships/_form.html.erb (36.9ms)
+  Rendered memberships/new.html.erb within layouts/application (37.8ms)
+  Rendered shared/_navbar.html.erb (1.8ms)
+  Rendered shared/_flashes.html.erb (0.3ms)
+Completed 200 OK in 102ms (Views: 62.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/memberships" for 127.0.0.1 at 2017-04-03 15:41:39 +0200
+Processing by MembershipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XYDMHJnZdT1lLrYCp+1cYCatpisNQNFTT6T/fCN78L4LjKfNA1q7mLUfQ0LV0+iQf5t2VxhSwzPAAfr5yREjIg==", "membership"=>{"last_name"=>"a", "first_name"=>"a", "age"=>"a", "diplome"=>"a", "activity"=>"a", "massif"=>"a", "periode"=>"a", "passmorgiou"=>"false", "passsormiou"=>"false", "siret"=>"aaaaaa", "description"=>"a", "photo_cache"=>"1491226894-23668-0001-4899/40999046-Ecologie-arbre-logo-vecteur-Banque-d_images.jpg"}, "commit"=>"Soumettre les modifications"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMembership Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "memberships" WHERE "memberships"."siret" = $1 LIMIT $2[0m  [["siret", "aaaaaa"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "memberships" ("first_name", "last_name", "diplome", "age", "activity", "massif", "periode", "passmorgiou", "passsormiou", "siret", "description", "user_id", "photo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["first_name", "a"], ["last_name", "a"], ["diplome", "a"], ["age", "a"], ["activity", "a"], ["massif", "a"], ["periode", "a"], ["passmorgiou", false], ["passsormiou", false], ["siret", "aaaaaa"], ["description", "a"], ["user_id", 1], ["photo", "v1hbinyctai5dqgkrahv.jpg"], ["created_at", 2017-04-03 13:41:39 UTC], ["updated_at", 2017-04-03 13:41:39 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "memberships" SET "photo" = 'image/upload/v1491226900/v1hbinyctai5dqgkrahv.jpg' WHERE "memberships"."id" = $1[0m  [["id", 31]]
+  [1m[35m (33.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering membership_mailer/creation_confirmation.html.erb within layouts/mailer
+  Rendered membership_mailer/creation_confirmation.html.erb within layouts/mailer (0.6ms)
+MembershipMailer#creation_confirmation: processed outbound mail in 258.1ms
+Sent mail to axel.avocat@gmail.com (1543.7ms)
+Date: Mon, 03 Apr 2017 15:41:40 +0200
+From: sppnature@gmail.com
+To: axel.avocat@gmail.com
+Message-ID: <58e25114e26a4_5c742b19507505b439685@axelab-G75VW.mail>
+Subject: =?UTF-8?Q?Adh=C3=A9sion_SPPN?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    Bonjour,
+<br>
+Nous avons bien recus votre demande d'adh=C3=A9sion au sein du SPPN
+<br>
+Celle-ci sera trait=C3=A9e dans les plus bref d=C3=A9lais par un administ=
+rateur.
+
+
+<br>
+
+Afin de valider d=C3=A9finitivement votre adh=C3=A9sion, merci de joindre=
+ votre r=C3=A8glement de 25 Euros par courrier =C3=A0 :
+<br>
+
+SPPN
+<br>
+
+3505 avenue de la Sainte Baume Pinchinier
+<br>
+
+13720 La Bouilladisse
+<br>
+Merci pour votre comp=C3=A9hension.
+<br>
+Le Syndicat des Professionnels de Pleine Nature.
+
+  </body>
+</html>
+
+Redirected to http://localhost:3000/memberships
+Completed 302 Found in 3338ms (ActiveRecord: 36.1ms)
+
+
+Started GET "/memberships" for 127.0.0.1 at 2017-04-03 15:41:42 +0200
+Processing by MembershipsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/index.html.erb within layouts/application
+  [1m[36mMembership Load (0.8ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" ORDER BY RANDOM()[0m
+  Rendered memberships/_card.html.erb (2.7ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (1.3ms)
+  Rendered memberships/_card.html.erb (1.0ms)
+  Rendered memberships/_card.html.erb (1.0ms)
+  Rendered memberships/index.html.erb within layouts/application (42.1ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_flashes.html.erb (1.1ms)
+Completed 200 OK in 96ms (Views: 91.4ms | ActiveRecord: 1.4ms)
+
+
