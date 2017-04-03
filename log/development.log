@@ -17789,3 +17789,193 @@ Processing by MembershipsController#show as HTML
 Completed 200 OK in 73ms (Views: 40.5ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-04-02 09:00:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (34.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (2.6ms)
+  Rendered shared/_navbar.html.erb (53.6ms)
+  Rendered shared/_flashes.html.erb (0.5ms)
+Completed 200 OK in 6654ms (Views: 6626.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/memberships" for 127.0.0.1 at 2017-04-02 09:00:14 +0200
+Processing by MembershipsController#index as HTML
+  Rendering memberships/index.html.erb within layouts/application
+  [1m[36mMembership Load (110.8ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" ORDER BY "memberships"."created_at" ASC[0m
+  Rendered memberships/_card.html.erb (2.5ms)
+  Rendered memberships/_card.html.erb (0.8ms)
+  Rendered memberships/_card.html.erb (0.8ms)
+  Rendered memberships/_card.html.erb (0.7ms)
+  Rendered memberships/_card.html.erb (0.7ms)
+  Rendered memberships/_card.html.erb (0.7ms)
+  Rendered memberships/_card.html.erb (0.7ms)
+  Rendered memberships/index.html.erb within layouts/application (185.2ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_flashes.html.erb (0.5ms)
+Completed 200 OK in 239ms (Views: 72.9ms | ActiveRecord: 149.8ms)
+
+
+Started GET "/memberships/1" for 127.0.0.1 at 2017-04-02 09:00:25 +0200
+Processing by MembershipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/show.html.erb within layouts/application
+  Rendered memberships/show.html.erb within layouts/application (1.5ms)
+  Rendered shared/_navbar.html.erb (1.5ms)
+  Rendered shared/_flashes.html.erb (0.3ms)
+Completed 200 OK in 81ms (Views: 24.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-02 09:00:29 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (86.2ms)
+  Rendered shared/_navbar.html.erb (1.6ms)
+  Rendered shared/_flashes.html.erb (0.3ms)
+Completed 200 OK in 134ms (Views: 120.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-02 09:00:30 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nhQcOjo1m6HF8rpYGqj2MT0WM1Sf4x6q846QTJrq+zWFYAzoPqFPvUc1tjBcTvWAam5NzmmA+PPSjcU6X4NSnA==", "user"=>{"email"=>"axel.avocat@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (54.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "axel.avocat@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-04-02 07:00:31 UTC], ["last_sign_in_at", 2017-03-23 22:21:15 UTC], ["sign_in_count", 28], ["updated_at", 2017-04-02 07:00:31 UTC], ["id", 1]]
+  [1m[35m (14.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 307ms (ActiveRecord: 69.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-02 09:00:31 +0200
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (3.7ms)
+  Rendered shared/_flashes.html.erb (0.5ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/memberships" for 127.0.0.1 at 2017-04-02 09:00:32 +0200
+Processing by MembershipsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/index.html.erb within layouts/application
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" ORDER BY "memberships"."created_at" ASC[0m
+  Rendered memberships/_card.html.erb (2.3ms)
+  Rendered memberships/_card.html.erb (1.0ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (0.9ms)
+  Rendered memberships/_card.html.erb (1.0ms)
+  Rendered memberships/_card.html.erb (1.0ms)
+  Rendered memberships/index.html.erb within layouts/application (16.1ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_flashes.html.erb (0.4ms)
+Completed 200 OK in 57ms (Views: 51.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/memberships/1/edit" for 127.0.0.1 at 2017-04-02 09:00:34 +0200
+Processing by MembershipsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/edit.html.erb within layouts/application
+  Rendered memberships/_form.html.erb (38.2ms)
+  Rendered memberships/edit.html.erb within layouts/application (55.9ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_flashes.html.erb (0.6ms)
+Completed 200 OK in 110ms (Views: 92.9ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/memberships/1" for 127.0.0.1 at 2017-04-02 09:00:45 +0200
+Processing by MembershipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h85A5tFeFk1zM0fulnU2B7WqkZ10pE/DVS9usESyfoDXB05d1j5BgLB5HxsQ1nPZvvidwFlgi1BVyPPbpP5w+g==", "membership"=>{"last_name"=>"AVOCAT-Benan", "first_name"=>"Axel", "age"=>"05/12/1988", "diplome"=>"DE Escalade", "activity"=>"a", "massif"=>"a", "periode"=>"a", "passmorgiou"=>"true", "passsormiou"=>"true", "siret"=>"123456789012457890", "description"=>"Coucou!1", "photo"=>"", "photo_cache"=>""}, "commit"=>"Soumettre les modifications", "id"=>"1"}
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "memberships" SET "last_name" = $1, "updated_at" = $2, "photo" = $3 WHERE "memberships"."id" = $4[0m  [["last_name", "AVOCAT-Benan"], ["updated_at", 2017-04-02 07:00:45 UTC], ["photo", "image/upload/v1489090343/aipv6m6trn8vsexgnwth.jpg"], ["id", 1]]
+  [1m[35m (20.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "memberships" SET "updated_at" = $1, "photo" = $2 WHERE "memberships"."id" = $3[0m  [["updated_at", 2017-04-02 07:00:45 UTC], ["photo", "image/upload/v1489090343/aipv6m6trn8vsexgnwth.jpg"], ["id", 1]]
+  [1m[35m (38.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/memberships/1
+Completed 302 Found in 76ms (ActiveRecord: 61.9ms)
+
+
+Started GET "/memberships/1" for 127.0.0.1 at 2017-04-02 09:00:45 +0200
+Processing by MembershipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/show.html.erb within layouts/application
+  Rendered memberships/show.html.erb within layouts/application (1.4ms)
+  Rendered shared/_navbar.html.erb (1.5ms)
+  Rendered shared/_flashes.html.erb (0.3ms)
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/memberships" for 127.0.0.1 at 2017-04-02 09:00:49 +0200
+Processing by MembershipsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/index.html.erb within layouts/application
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" ORDER BY "memberships"."created_at" ASC[0m
+  Rendered memberships/_card.html.erb (1.3ms)
+  Rendered memberships/_card.html.erb (0.5ms)
+  Rendered memberships/_card.html.erb (0.6ms)
+  Rendered memberships/_card.html.erb (0.5ms)
+  Rendered memberships/_card.html.erb (0.5ms)
+  Rendered memberships/_card.html.erb (0.5ms)
+  Rendered memberships/_card.html.erb (0.5ms)
+  Rendered memberships/index.html.erb within layouts/application (8.8ms)
+  Rendered shared/_navbar.html.erb (1.5ms)
+  Rendered shared/_flashes.html.erb (0.3ms)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/memberships" for 127.0.0.1 at 2017-04-02 09:02:55 +0200
+Processing by MembershipsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/index.html.erb within layouts/application
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" ORDER BY "memberships"."created_at" ASC[0m
+  Rendered memberships/_card.html.erb (1.8ms)
+  Rendered memberships/_card.html.erb (0.8ms)
+  Rendered memberships/_card.html.erb (0.7ms)
+  Rendered memberships/_card.html.erb (0.7ms)
+  Rendered memberships/_card.html.erb (0.7ms)
+  Rendered memberships/_card.html.erb (0.6ms)
+  Rendered memberships/_card.html.erb (0.6ms)
+  Rendered memberships/index.html.erb within layouts/application (12.0ms)
+  Rendered shared/_navbar.html.erb (1.8ms)
+  Rendered shared/_flashes.html.erb (0.4ms)
+Completed 200 OK in 43ms (Views: 39.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/memberships/1/edit" for 127.0.0.1 at 2017-04-02 09:02:57 +0200
+Processing by MembershipsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/edit.html.erb within layouts/application
+  Rendered memberships/_form.html.erb (24.2ms)
+  Rendered memberships/edit.html.erb within layouts/application (27.3ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_flashes.html.erb (0.6ms)
+Completed 200 OK in 70ms (Views: 64.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/memberships/1" for 127.0.0.1 at 2017-04-02 09:03:01 +0200
+Processing by MembershipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMembership Load (0.2ms)[0m  [1m[34mSELECT  "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering memberships/show.html.erb within layouts/application
+  Rendered memberships/show.html.erb within layouts/application (1.7ms)
+  Rendered shared/_navbar.html.erb (1.5ms)
+  Rendered shared/_flashes.html.erb (0.3ms)
+Completed 200 OK in 30ms (Views: 26.7ms | ActiveRecord: 0.6ms)
+
+
